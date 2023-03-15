@@ -45,8 +45,10 @@
         <hr>
         <div class="row">
           <div class="col align-content-center">
+            {% autoescape false %}
             <p><em>{{ result }}</em></p>
             <p>{{ battle_result }}</p>
+            {% endautoescape %}
           </div>
         </div>
         <hr>
