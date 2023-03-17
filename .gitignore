@@ -111,6 +111,7 @@ env.bak/
 venv.bak/
 infra1/
 coursework_5/
+lesson24_demo/
 
 # Spyder project settings
 .spyderproject

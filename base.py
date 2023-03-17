@@ -1,3 +1,5 @@
+from typing import Optional
+
 from unit import BaseUnit
 
 
@@ -23,7 +25,7 @@ class Arena(metaclass=BaseSingleton):
         self.enemy = enemy
         self.game_is_running = True
 
-    def _check_players_hp(self):
+    def _check_players_hp(self) -> Optional[str, None]:
         if self.player.hp > 0 and self.enemy.hp > 0:
             return None
 
@@ -44,7 +46,7 @@ class Arena(metaclass=BaseSingleton):
             else:
                 unit.stamina += self.STAMINA_PER_ROUND
 
-    def next_turn(self):
+    def next_turn(self) -> str:
         result = self._check_players_hp()
         if result is not None:
             return result
@@ -52,17 +54,17 @@ class Arena(metaclass=BaseSingleton):
             self._stamina_regeneration()
             return self.enemy.hit(self.player)
 
-    def _end_game(self):
+    def _end_game(self) -> str:
         self._instances = {}
         self.game_is_running = False
         return self.battle_result
 
-    def player_hit(self):
+    def player_hit(self) -> str:
         result = self.player.hit(self.enemy)
         turn_result = self.next_turn()
         return f"{result}<br>{turn_result}"
 
-    def player_use_skill(self):
+    def player_use_skill(self) -> str:
         result = self.player.use_skill(self.enemy)
         turn_result = self.next_turn()
         return f"{result}<br>{turn_result}"

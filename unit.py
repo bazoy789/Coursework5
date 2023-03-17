@@ -1,9 +1,9 @@
 from __future__ import annotations
 from abc import ABC, abstractmethod
-from equipment import Equipment, Weapon, Armor
+from equipment import Weapon, Armor
 from classes import UnitClass
 from random import randint
-from typing import Optional
+from typing import Optional, Dict
 
 
 class BaseUnit(ABC):
@@ -23,17 +23,17 @@ class BaseUnit(ABC):
         self._is_skill_used = False
 
     @property
-    def health_points(self):
+    def health_points(self) -> float:
         return round(self.hp, 1)
 
     @property
-    def stamina_points(self):
+    def stamina_points(self) -> float:
         return round(self.stamina, 1)
 
-    def equip_weapon(self, weapon: Weapon):
+    def equip_weapon(self, weapon: Weapon) -> Optional[Dict[str, Optional[int, str, float]], None]:
         self.weapon = weapon
 
-    def equip_armor(self, armor: Armor):
+    def equip_armor(self, armor: Armor) -> Optional[Dict[str, Optional[int, str, float]], None]:
         self.armor = armor
 
     def _count_damage(self, target: BaseUnit) -> int:
@@ -49,7 +49,7 @@ class BaseUnit(ABC):
 
         return damage
 
-    def get_damage(self, damage: int) -> Optional[int]:
+    def get_damage(self, damage: int) -> Optional[int, None]:
         if self.hp < damage:
             self.hp = 0
         else:

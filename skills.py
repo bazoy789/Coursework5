@@ -51,7 +51,7 @@ class FuryPunch(Skill):
     stamina = 6
     damage = 12
 
-    def skill_effect(self):
+    def skill_effect(self) -> str:
         self.user.stamina -= self.stamina
         self.target.hp -= self.damage
         return f"{self.user.name} использует {self.name} и наносит {self.damage} урон сопернику."
@@ -61,7 +61,7 @@ class HardShot(Skill):
     stamina = 5
     damage = 15
 
-    def skill_effect(self):
+    def skill_effect(self) -> str:
         self.user.stamina -= self.stamina
         self.target.hp -= self.damage
         return f"{self.user.name} использует {self.name} и наносит {self.damage} урон сопернику."
