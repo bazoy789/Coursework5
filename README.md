@@ -1,3 +1,3 @@
-# coursework_5
+# The game is a battle of two fighters
 
-# Для выполнения курсовой работы также можно воспользоваться папкой help files
+### Простая web игра бой 2 героев
