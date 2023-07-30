@@ -8,5 +8,5 @@ Technologies:
 - Marshmallow
 
 Run:
-pip install -r requirements.txt
-app.py для запуска программ
+- pip install -r requirements.txt
+- app.py для запуска программ
